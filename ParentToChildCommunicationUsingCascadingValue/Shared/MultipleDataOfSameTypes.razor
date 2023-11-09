@@ -1,0 +1,17 @@
+﻿
+<table>
+    <tr>
+        <td>Customer Name</td>
+        <td>@CustomerName</td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td>@Address</td>
+    </tr>
+</table>
+@code {
+    [CascadingParameter(Name = "CustomerAddress")]
+    public string? Address { get; set; }
+    [CascadingParameter(Name = "CustomerName")]
+    public string? CustomerName { get; set; }
+}

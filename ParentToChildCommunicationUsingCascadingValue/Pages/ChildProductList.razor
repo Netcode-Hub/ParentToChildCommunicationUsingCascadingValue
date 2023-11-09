@@ -1,0 +1,21 @@
+﻿@using ParentToChildCommunicationUsingCascadingValue.Data
+<div class="container mb-5">
+    <div class="row">
+        @if (Products.Count > 0)
+        {
+            foreach (var item in Products)
+            {
+                <div class="col-auto m-2">
+                    <div class="card">
+                        <div class="card-header"> <span>@item.Name</span> </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+ 
+@code{
+    [CascadingParameter]
+    public List<Product> Products { get; set; }
+}

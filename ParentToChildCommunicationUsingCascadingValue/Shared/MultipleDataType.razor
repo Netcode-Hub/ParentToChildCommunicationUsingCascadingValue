@@ -1,0 +1,18 @@
+﻿ 
+<table>
+    <tr>
+        <td>Name</td>
+        <td>@Name</td>
+    </tr>
+    <tr>
+        <td>Amount</td>
+        <td>@Amount</td>
+    </tr>
+</table>
+@code {
+    [CascadingParameter]
+    public string? Name { get; set; }
+
+    [CascadingParameter]
+    public double Amount { get; set; }
+}

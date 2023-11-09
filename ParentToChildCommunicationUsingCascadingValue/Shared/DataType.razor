@@ -1,0 +1,89 @@
+﻿@page "/data-type"
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">Single Data Type</div>
+                <div class="card-body">
+                    <CascadingValue Value="Age">
+                        <SingleDataType></SingleDataType>
+                    </CascadingValue>
+
+                    <div class="form-group mt-2">
+                        <label class="form-label">Enter Age</label>
+                        <InputNumber @bind-Value="Age" class="form-control"></InputNumber>
+                    </div>
+                </div>
+                <div class="card-footer text-info fw-bold">
+                    This takes in ONLY one data type, ie. int, string, double, etc...
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">Multiple data of different Types</div>
+                <div class="card-body">
+                    <CascadingValue Value="Name">
+                        <CascadingValue Value="Amount">
+                            <MultipleDataType></MultipleDataType>
+                        </CascadingValue>
+                    </CascadingValue>
+                    <div class="form-group mt-2">
+                        <label class="form-label">Enter Name</label>
+                        <InputText @bind-Value="Name" class="form-control"></InputText>
+                        <label class="form-label mt-2">Enter Amount</label>
+                        <InputNumber @bind-Value="Amount" class="form-control"></InputNumber>
+                    </div>
+                    <div class="card-footer text-success fw-bold">
+                        Cascading Value with different data type can be used no matter the quantity.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">Multiple data of same Types</div>
+                <div class="card-body">
+                    <CascadingValue Value="CustomerName" Name="CustomerName">
+                        <CascadingValue Value="Address" Name="CustomerAddress">
+                            <MultipleDataOfSameTypes></MultipleDataOfSameTypes>
+                        </CascadingValue>
+                    </CascadingValue>
+                    <div class="form-group mt-2">
+                        <label class="form-label">Enter Customer Name</label>
+                        <InputText @bind-Value="CustomerName" class="form-control"></InputText>
+                        <label class="form-label mt-2">Enter Customer Address</label>
+                        <InputText @bind-Value="Address" class="form-control"></InputText>
+                    </div>
+                </div>
+                <div class="card-footer text-primary fw-bold">
+                    Cascading Values with the same data type must be specified using the Name attribute.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 
+
+@code {
+    //single data type
+    public int Age { get; set; }
+
+    //multiple data of different types
+    public double Amount { get; set; }
+    public string? Name { get; set; }
+
+    //multiple data of same types
+    public string? CustomerName  { get; set; }
+    public string? Address  { get; set; }
+}

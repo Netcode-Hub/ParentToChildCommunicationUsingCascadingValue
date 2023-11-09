@@ -1,0 +1,43 @@
+﻿@page "/"
+@using ParentToChildCommunicationUsingCascadingValue.Data
+List of Model
+<CascadingValue Value="Products">
+    <ChildProductList/>
+</CascadingValue>
+
+Single Model
+<CascadingValue Value="Product">
+    <ChildSingleProduct></ChildSingleProduct>
+</CascadingValue>
+
+ 
+
+
+@code {
+    private List<Product> Products { get; set; } = new();
+    private Product Product { get; set; } = new();
+    protected override void OnInitialized()
+    {
+        LoadProducts();
+    }
+
+    private void LoadProducts()
+    {
+        Products = new(){
+            new Product() { Name = "Television " },
+            new Product() { Name = "Mobile " },
+            new Product() { Name = "Desktop " },
+            new Product() { Name = "Laptop " },
+            new Product() { Name = "Refrigerator " },
+            new Product() { Name = "Computer " },
+            new Product() { Name = "Keyboard " },
+            new Product() { Name = "Mouse " },
+            new Product() { Name = "Monitor " },
+            new Product() { Name = "Microphone " },
+            new Product() { Name = "Speaker " }
+        };
+
+        Product = new Product() { Name = "Television " };
+    }
+}
+
